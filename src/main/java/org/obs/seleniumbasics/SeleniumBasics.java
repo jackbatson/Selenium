@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.List;
+
 public class SeleniumBasics {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\drivers\\chromedriver.exe");
@@ -21,8 +23,16 @@ public class SeleniumBasics {
 
         //WebElement email = driver.findElement(By.className("email"));
        //WebElement email = driver.findElement(By.xpath("//*[@id=\"Email\"]"));
-        WebElement email =  driver.findElement(By.cssSelector("#Email"));
-        email.sendKeys("contact@adappur.com" );
+      //  WebElement email =  driver.findElement(By.cssSelector("#Email"));
+       // email.sendKeys("contact@adappur.com" );
+
+
+        //Webelement by using linktext and partial link text
+        WebElement email = driver.findElement(By.linkText("login"));
+        //WebElement email = driver.findElement(By.partialLinkText("log"));
+       //List <WebElement> tag = driver.findElement(By.tagName("123"));
+      //int size= tag.size();
+        //System.out.println(size);
 
 
         //close browser
