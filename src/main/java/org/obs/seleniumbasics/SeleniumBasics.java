@@ -30,7 +30,8 @@ public class SeleniumBasics {
         //Webelement by using linktext and partial link text
         WebElement email = driver.findElement(By.linkText("login"));
         //WebElement email = driver.findElement(By.partialLinkText("log"));
-       //List <WebElement> tag = driver.findElement(By.tagName("123"));
+       List <WebElement> tag = driver.findElements(By.tagName("123"));
+
       //int size= tag.size();
         //System.out.println(size);
 
