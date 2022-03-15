@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Amazon {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\drivers\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -22,6 +22,34 @@ public class Amazon {
         //login to amazon.in
 
         driver.findElement(By.xpath("//span[@id='nav-link-accountList-nav-line-1']")).click();
+
+        // enter credentials into the login button
+
+        driver.findElement(By.id("ap_email")).sendKeys("contact@adappur.com");
+
+        // click on continue button to login
+        driver.findElement(By.xpath("//*[contains(@class, 'a-button-input')]")).click();
+
+        //Enter password
+
+        driver.findElement(By.cssSelector("#ap_password")).sendKeys("Adappur@123");
+
+        // Click on check box remember me
+
+        driver.findElement(By.xpath("//*[@name='rememberMe']")).click();
+
+        Thread.sleep(3000);
+        //click on sign in button to login
+
+        driver.findElement(By.xpath("//*[@id='signInSubmit']")).click();
+        Thread.sleep(3000);
+
+        //close the web browser
+
+        driver.close();
+
+
+        /*
 // register amazon.in
 
         driver.findElement(By.id("createAccountSubmit")).click();
@@ -36,7 +64,7 @@ public class Amazon {
 
         driver.findElement(By.xpath("//input[@id='continue']")).click();
 
-        driver.findElement(By.className("home_children_button")).click();
+        driver.findElement(By.className("home_children_button")).click();*/
 
 
 
