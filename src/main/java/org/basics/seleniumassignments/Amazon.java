@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
@@ -44,9 +45,42 @@ public class Amazon {
         driver.findElement(By.xpath("//*[@id='signInSubmit']")).click();
         Thread.sleep(3000);
 
+        //search keyword "Georgekutty adappur" in amazon.in search button
+
+        driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']")).sendKeys("georgekutty adappur");
+
+        driver.findElement(By.cssSelector("#nav-search-submit-button")).click();
+
+        //Select book Jack Batson and the Holy Grail to add to cart
+
+        driver.findElement(By.xpath("//span[normalize-space()='Jack Batson and the Holy Grail']")).click();
+
+        driver.findElement(By.id("add-to-ebooks-cart-button")).click();
+
+        //driver.navigate().toString(By.ById);
+
+        //click on number of products button to choose how many copies needed
+
+
+        //choose 10 copies of the book
+
+       //Select quantity= new Select(
+
+
+        //Select quantity= new Select(driver.findElement(By.id("add-to-ebooks-cart-button")));
+
+
+
+       // driver.findElement(By.id("quantity-dropdown-select_0")).findElement
+              //  (By.xpath("//span[@id='quantity-dropdown']//span[@class='a-button-text a-declarative']")).findElement
+                //(By.xpath("(By.xpath(\"//a[@id='quantity-dropdown-select_9']"));
+
+
+        driver.findElement(By.id("quantity-dropdown-select_9")).click();
+
         //close the web browser
 
-        driver.close();
+       // driver.close();
 
 
         /*
