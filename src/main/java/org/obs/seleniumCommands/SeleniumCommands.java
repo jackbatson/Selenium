@@ -461,9 +461,27 @@ public class SeleniumCommands {
         alert.accept();
     }
     @Test
-    public void verifyMouseHover(){
+    public void verifyMouseHover1(){
+        driver.get("https://demoqa.com/menu/");
+        WebElement mainElementOne = driver.findElement(By.xpath("//a[normalize-space()='Main Item 1']"));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(mainElementOne).perform();
+    }@Test
+    public void verifyMouseHover2(){
+        driver.get("https://demoqa.com/menu/");
+        WebElement mainElementTwo = driver.findElement(By.xpath("//a[normalize-space()='Main Item 2']"));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(mainElementTwo).perform();
+        WebElement option2 = driver.findElement(By.xpath("//a[normalize-space()='SUB SUB LIST »']"));
+        actions.moveToElement(option2).perform();
+        WebElement option3 = driver.findElement(By.xpath("//a[normalize-space()='Sub Sub Item 2']"));
+        actions.moveToElement(option3).click().build().perform();
+
 
     }
+
+
+
 
 }
 
