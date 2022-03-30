@@ -7,7 +7,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -48,17 +47,14 @@ public class SeleniumCommands {
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
     }
-
     @BeforeMethod
     public void setUp() {
         testInitialise("chrome");
     }
-
     @AfterMethod
     public void tearDown() {
-        //driver.close();
+        driver.close();
     }
-
     @Test
     public void verifyHomePageTitle() {
         driver.get("http://demowebshop.tricentis.com/");
@@ -66,7 +62,6 @@ public class SeleniumCommands {
         String expectedTitle = "Demo Web Shop";
         Assert.assertEquals(actualTitle, expectedTitle, "Invalid Page Title");
     }
-
     @Test
     public void verifyLogin() {
         driver.get("http://demowebshop.tricentis.com");
@@ -88,7 +83,6 @@ public class SeleniumCommands {
         String expectedemailID = "jackbatson@jackbatson.com";
         Assert.assertEquals(actualemailID, expectedemailID, "User login Failed");
     }
-
     @Test
     public void verifyClear() {
         driver.get("http://demowebshop.tricentis.com");
@@ -104,7 +98,6 @@ public class SeleniumCommands {
         WebElement loginbutton = driver.findElement(By.cssSelector("input[value='Log in']"));
         loginbutton.click();
     }
-
     @Test
     public void verifyWebElementCommand() {
         driver.get("http://demowebshop.tricentis.com");
@@ -182,7 +175,6 @@ public class SeleniumCommands {
         System.out.println(result);
         Assert.assertTrue(result, "Submit button not displayed");
     }
-
     @Test
     public void verifyElementEnabled() {
         driver.get("http://demowebshop.tricentis.com");
@@ -193,7 +185,6 @@ public class SeleniumCommands {
         System.out.println(enabledStatus);
         Assert.assertTrue(enabledStatus, "Submit button not enabled");
     }
-
     @Test
     public void verifyCheckBoxSelectionStatus() {
         driver.get("http://demowebshop.tricentis.com");
@@ -208,7 +199,6 @@ public class SeleniumCommands {
         System.out.println(selectionStatus);
         Assert.assertTrue(selectionStatus, "checkin button not selected ");
     }
-
     @Test
     public void verifyRegisterAndSubmitButton() {
         driver.get("https://demo.guru99.com/test/newtours/index.php");
@@ -379,8 +369,6 @@ public class SeleniumCommands {
 
     }
 
-
-
     @Test
     public void verifyFirstSelectedColour() {
         driver.get("https://selenium.obsqurazone.com/select-input.php");
@@ -414,7 +402,7 @@ public class SeleniumCommands {
         List<WebElement> multiSelectionOptions = select.getOptions();
         for (int i = 1; i < multiSelectionOptions.size(); i++) {
             System.out.println(multiSelectionOptions.get(i).getText());
-    }
+        }
 
     }
 
@@ -441,31 +429,9 @@ public class SeleniumCommands {
         System.out.println();
         System.out.println(driver.findElement(By.id("message-one")).getText());
     }
-    @Test
-    public void verifyRightClick(){
-        driver.get("https://demo.guru99.com/test/simple_context_menu.html");
-        WebElement rightClick = driver.findElement(By.xpath("//span[@class='context-menu-one btn btn-neutral']"));
-        Actions action = new Actions(driver);
-        action.contextClick(rightClick).build().perform();
-
-    }
-    @Test
-    public void verifyDoubleClick(){
-        driver.get("https://demo.guru99.com/test/simple_context_menu.html");
-        WebElement doubleClick=driver.findElement(By.xpath("//button[text()='Double-Click Me To See Alert']"));
-        Actions action = new Actions(driver);
-        action.doubleClick(doubleClick).build().perform();
-        Alert alert = driver.switchTo().alert();
-        String alertString = alert.getText();
-        System.out.println(alertString);
-        alert.accept();
-    }
-    @Test
-    public void verifyMouseHover(){
-
-    }
 
 }
+
 
 
 
